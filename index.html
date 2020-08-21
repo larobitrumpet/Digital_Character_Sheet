@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Digital Character Sheet</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+<body>
+    <div class="start">
+        <h1>Digital Character Sheet</h1>
+	<p style="color: red;">This website is still under construction. Not all features have been implemented and there are still bugs. You have been warned.</p>
+        <div>
+            <p id="load" class="button">Load Existing Character</p>
+        </div>
+        <div>
+            <p id="new" class="button">Create New Character</p>
+        </div>
+    </div>
+    <div class="create">
+        <div class="create_stuff">
+            <div class="pl_name">
+                <h1>Name</h1>
+                <p>Enter your name (not your character's name):</p>
+                <input type="text" name="pl_name" id="pl_name"><br>
+		<p>Enter your character's name:</p>
+		<input type="text" name="name" id="name"><br>
+                <p id="pl_name_next" class="button">Next</p>
+            </div>
+            <div class="stats">
+                <h1>Create Your Stats.</h1>
+                <p>Roll 4d6 and take out the lowest number. Add up the remaining numbers and put the result in a box. Do this 5 more time to fill in all the boxes. If you don't like your stats, you can throw them all away and get completely new ones, but you can only do this three times. You can also press "Generate" to automaticly generate stats. You can also scroll down for alternative ways of generating stats.</p>
+                <form id="stats_form">
+                    <input type="text" name="stat0"><br>
+                    <input type="text" name="stat1"><br>
+                    <input type="text" name="stat2"><br>
+                    <input type="text" name="stat3"><br>
+                    <input type="text" name="stat4"><br>
+                    <input type="text" name="stat5"><br>
+                </form>
+                <!-- <p id="points">Points used: </p> -->
+                <p id="generate_4d6_1" class="button">Generate 4d6 drop lowest.</p><br>
+                <p id="generate_sa" class="button">Generate Standard Array.</p><br>
+                <p id="stats_next" class="button">Next</p><br>
+            </div>
+            <div class="race">
+                <h1>Choose a race.</h1>
+                <div id="race">
+                </div>
+                <p id="race_next" class="button">Next</p>
+            </div>
+            <div id="race_info">
+            </div>
+            <div class="background">
+                <h1>Choose a background.</h1>
+                <div id="background">
+                </div>
+                <p id="background_next" class="button">Next</p>
+            </div>
+            <div id="background_info">
+            </div>
+            <div class="class">
+                <h1>Choose a class.</h1>
+                <div id="class">
+                </div>
+                <p id="class_next" class="button">Next</p>
+            </div>
+            <div id="class_info">
+            </div>
+            <div id="save">
+                <h1>Saving Your Character</h1>
+                <p>You can click the button below to save your character or you can get a printable version.</p>
+		<p id="saveChar" class="button">Save Character</p><br>
+		<p id="printChar" class="button">Print</p><br>
+		<p style="color: red;">You have reached the end of what has been created. Please come back later when more features have been implemented.</p>
+            </div>
+        </div>
+        <div class="progress">
+            <div>
+                <h3 id="progress_name_label">Character Name:</h3>
+                <p id="progress_name"></p>
+                <h3 id="progress_class_label">Class:</h3>
+                <p id="progress_class"></p>
+                <h3 id="progress_level_label">Level:</h3>
+                <p id="progress_level"></p>
+                <h3 id="progress_race_label">Race:</h3>
+                <p id="progress_race"></p>
+                <h3 id="progress_background_label">Background:</h3>
+                <p id="progress_background"></p>
+                <h3 id="progress_alignment_label">Alignment:</h3>
+                <p id="progress_alignment"></p>
+                <h3 id="progress_player_name_label">Player Name:</h3>
+                <p id="progress_player_name"></p>
+                <h3 id="progress_exp_label">Experience Points:</h3>
+                <p id="progress_exp"></p>
+            </div>
+            <div>
+		<h3 class="progress_score_label">Ability Scores:</h3>
+                <table>
+                    <tr class="progress_score_label">
+                        <th>Ability</th>
+			<th>Ability Score</th>
+			<th>Ability Modifier</th>
+                    </tr>
+                    <tr id="progress_str_score_label">
+                        <td>Strength:</td>
+                        <td id="progress_str_score"></td>
+                        <td id="progress_str_mod"></td>
+                    </tr>
+                    <tr id="progress_dex_score_label">
+                        <td>Dexterity:</td>
+                        <td id="progress_dex_score"></td>
+                        <td id="progress_dex_mod"></td>
+                    </tr>
+                    <tr id="progress_con_score_label">
+                        <td>Constitution:</td>
+                        <td id="progress_con_score"></td>
+                        <td id="progress_con_mod"></td>
+                    </tr>
+                    <tr id="progress_int_score_label">
+                        <td>Intelligence:</td>
+                        <td id="progress_int_score"></td>
+                        <td id="progress_int_mod"></td>
+                    </tr>
+                    <tr id="progress_wis_score_label">
+                        <td>Wisdom:</td>
+                        <td id="progress_wis_score"></td>
+                        <td id="progress_wis_mod"></td>
+                    </tr>
+                    <tr id="progress_cha_score_label">
+                        <td>Charisma:</td>
+                        <td id="progress_cha_score"></td>
+                        <td id="progress_cha_mod"></td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3 id="progress_profBonus_label">Proficientcy Bonus:</h3>
+                <p id="progress_profBonus"></p>
+            </div>
+            <div>
+                <h3 id="progress_ac_label">Armor Class:</h3>
+                <p id="progress_ac"></p>
+                <h3 id="progress_init_label">Initiative:</h3>
+                <p id="progress_init"></p>
+                <h3 id="progress_speed_label">Speed:</h3>
+                <p id="progress_speed"></p>
+                <h3 id="progress_hp_label">Hit Points:</h3>
+                <p id="progress_hp"></p>
+                <h3 id="progress_hitDice_label">Hit Dice:</h3>
+                <p id="progress_hitDice"></p>
+            </div>
+            <div id="progress_save_label">
+                <h3>Saving Throws:</h3>
+                <table>
+                    <tr>
+                        <td><input type="radio" id="progress_str_save_prof"></td>
+                        <td id="progress_str_save"></td>
+                        <td>Strength</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_dex_save_prof"></td>
+                        <td id="progress_dex_save"></td>
+                        <td>Dexterity</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_con_save_prof"></td>
+                        <td id="progress_con_save"></td>
+                        <td>Constitution</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_int_save_prof"></td>
+                        <td id="progress_int_save"></td>
+                        <td>Intelligence</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_wis_save_prof"></td>
+                        <td id="progress_wis_save"></td>
+                        <td>Wisdom</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_cha_save_prof"></td>
+                        <td id="progress_cha_save"></td>
+                        <td>Charisma</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="progress_skills_label">
+                <h3>Skills:</h3>
+                <table>
+                    <tr>
+                        <td><input type="radio" id="progress_Acrobatics_prof"></td>
+                        <td id="progress_Acrobatics"></td>
+                        <td>Acrobatics (Dex)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Animal_Handling_prof"></td>
+                        <td id="progress_Animal_Handling"></td>
+                        <td>Animal Handling (Wis)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Arcana_prof"></td>
+                        <td id="progress_Arcana"></td>
+                        <td>Arcana (Int)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Athletics_prof"></td>
+                        <td id="progress_Athletics"></td>
+                        <td>Athletics (Str)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Deception_prof"></td>
+                        <td id="progress_Deception"></td>
+                        <td>Deception (Cha)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_History_prof"></td>
+                        <td id="progress_History"></td>
+                        <td>History (Int)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Insight_prof"></td>
+                        <td id="progress_Insight"></td>
+                        <td>Insight (Wis)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Intimidation_prof"></td>
+                        <td id="progress_Intimidation"></td>
+                        <td>Intimidation (Cha)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Investigation_prof"></td>
+                        <td id="progress_Investigation"></td>
+                        <td>Investigation (Int)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Medicine_prof"></td>
+                        <td id="progress_Medicine"></td>
+                        <td>Medicine (Wis)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Nature_prof"></td>
+                        <td id="progress_Nature"></td>
+                        <td>Nature (Int)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Perception_prof"></td>
+                        <td id="progress_Perception"></td>
+                        <td>Perception (Wis)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Performance_prof"></td>
+                        <td id="progress_Performance"></td>
+                        <td>Performance (Cha)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Persuasion_prof"></td>
+                        <td id="progress_Persuasion"></td>
+                        <td>Persuasion (Cha)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Religion_prof"></td>
+                        <td id="progress_Religion"></td>
+                        <td>Religion (Int)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Sleight_of_Hand_prof"></td>
+                        <td id="progress_Sleight_of_Hand"></td>
+                        <td>Sleight of Hand (Dex)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Stealth_prof"></td>
+                        <td id="progress_Stealth"></td>
+                        <td>Stealth (Dex)</td>
+                    </tr>
+                    <tr>
+                        <td><input type="radio" id="progress_Survival_prof"></td>
+                        <td id="progress_Survival"></td>
+                        <td>Survival (Wis)</td>
+                    </tr>
+                </table>
+            </div>
+            <div id="progress_attacks_label">
+                <h3>Attacks:</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ATK Bonus</th>
+                            <th>Damage/Type</th>
+                            <th>Other</th>
+                        </tr>
+                    </thead>
+                    <tbody id="progress_attacks">
+                    </tbody>
+                </table>
+            </div>
+            <div id="progress_equip_label">
+                <h3>Equipment:</h3>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>CP:</td>
+                            <td id="progress_cp"></td>
+                        </tr>
+                        <tr>
+                            <td>SP:</td>
+                            <td id="progress_sp"></td>
+                        </tr>
+                        <tr>
+                            <td>EP:</td>
+                            <td id="progress_ep"></td>
+                        </tr>
+                        <tr>
+                            <td>GP:</td>
+                            <td id="progress_gp"></td>
+                        </tr>
+                        <tr>
+                            <td>PP:</td>
+                            <td id="progress_pp"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <ul id="progress_equip">
+                </ul>
+            </div>
+            <div id="progress_prof">
+                <h3 id="progress_languages_label">Languages:</h3>
+                <ul id="progress_languages">
+                </ul>
+                <h3 id="progress_weaponProf_label">Weapon Proficiencies:</h3>
+                <ul id="progress_weaponProf">
+                </ul>
+                <h3 id="progress_toolProf_label">Tool Proficiencies:</h3>
+                <ul id="progress_toolProf">
+                </ul>
+                <h3 id="progress_armorProf_label">Armor Proficiencies:</h3>
+                <ul id="progress_armorProf">
+                </ul>
+                <h3 id="progress_otherProf_label">Other Proficiencies:</h3>
+                <ul id="progress_otherProf">
+                </ul>
+            </div>
+            <div>
+                <h3 id="progress_features_label">Features and Traits:</h3>
+                <ul id="progress_features">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="loadChar">
+        <div id="select">
+            <h1>Select Character</h1>
+            <p>Select a file to load a character from.</p>
+            <input type="file" id="selectChar" name="selectChar" accept="text/plain" onchange="handleFiles()"><br>
+            <p id="select_next" class="button">Next</p>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

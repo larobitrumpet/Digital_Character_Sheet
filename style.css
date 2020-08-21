@@ -1,0 +1,39 @@
+.create {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto 30vw;
+    grid-column-gap: 50px;
+}
+
+.progress {
+    border: 2px solid black;
+    /*overflow-y: scroll;*/
+    padding: 12px;
+    /*max-width: 356px;*/
+    min-width: 147px;
+    clear: right;
+}
+
+table, tr, th, td {
+    padding: 5px;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.ui-state-default {
+    width: 25px;
+    text-align: center;
+}
+
+.button {
+    border: 2px solid black;
+    display: inline-block;
+    padding: 4px;
+    background: lightgray;
+}
+
+/*@media only screen and (max-width: 768px) {
+  .create {
+    grid-template-columns: auto 25vw;
+  }
+}*/

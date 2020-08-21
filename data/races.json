@@ -1,0 +1,597 @@
+[
+    {
+        "name":"Dwarf",
+        "description":"",
+        "scores":{
+            "con": "2"
+        },
+        "age":"Dwarves mature at the same rate as humans, but they're considered young until they reach the age of 50. On average, they live about 350 years.",
+        "alignment":"Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend towards good as well, with a strong sense of fair play and a belief that everyone deservres to share in the benefits of a just order",
+        "size":"medium",
+        "speed":"25",
+        "weaponProf":{
+            "get":[
+                "battleaxe",
+                "handaxe",
+                "light hammer",
+                "warhammer"
+            ]
+        },
+        "toolProf":{
+            "choice":[
+                {
+                    "number":"1",
+                    "choices":[
+                        "smith's tools",
+                        "brewer's supplies",
+                        "mason's tools"
+                    ]
+                }
+            ]
+        },
+        "languages":{
+            "get":[
+                "Common",
+                "Dwarvish"
+            ]
+        },
+        "features":[
+            {
+                "name":"Darkvision",
+                "description":"Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name":"Dwarven Resilience",
+                "description":"You have advantage on saving throws against poison, and you have resistance against poison damage."
+            },
+            {
+                "name":"Stonecunning",
+                "description":"Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficientcy bonus to the check, instead of your normal proficientcy bonus."
+            }
+        ],
+        "subrace":[
+            {
+                "name":"Hill Dwarf",
+                "description":"",
+                "scores":{
+                    "wis":"1"
+                },
+                "features":[
+                    {
+                        "name":"Dwarven Toughness",
+                        "description":"Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+                    }
+                ]
+            },
+            {
+                "name":"Mountain Dwarf",
+                "description":"",
+                "scores":{
+                    "str":"2"
+                },
+                "armorProf":{
+                    "get":[
+                        "light",
+                        "medium"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "name":"Elf",
+        "description":"",
+        "scores":{
+            "dex":"2"
+        },
+        "age":"Although elves reach physical maturity about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old.",
+        "alignment":"Elves love freedom , variety, and selfexpression, so they lean strongly toward the gentler aspects of chaos. They value and protect others' freedom as well as their own, and they are more often good than not. The drow are an exception; their exile into the Underdark has made them vicious and dangerous. Drow are more often evil than not.",
+        "size":"medium",
+        "speed":"30",
+        "languages":{
+            "get":[
+                "Common",
+                "Elvish"
+            ]
+        },
+        "skillProf":{
+            "get":[
+                "Perception"
+            ]
+        },
+        "features":[
+            {
+                "name":"Darkvision",
+                "description":"Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name":"Fey Ancestry",
+                "description":"You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            },
+            {
+                "name":"Trance",
+                "description":"Elves don't need sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is \"trance.\") While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep (i.e. a long rest)."
+            }
+        ],
+        "subrace":[
+            {
+                "name":"High Elf",
+                "description":"",
+                "scores":{
+                    "int":"1"
+                },
+                "weaponProf":{
+                    "get":[
+                        "longsword",
+                        "shortsword",
+                        "shortbow",
+                        "longbow"
+                    ]
+                },
+                "languages":{
+                    "choice":[
+                        {
+                            "number":"1",
+                            "choices":[
+                                "*lang"
+                            ]
+                        }
+                    ]
+                },
+                "spells":{
+                    "0":{
+                        "choice":[
+                            {
+                                "number":"1",
+                                "choices":[
+                                    {"list":"wizard"}
+                                ]
+                            }
+                        ]
+                    },
+                    "ability":"int"
+                    
+                }
+            },
+            {
+                "name":"Wood Elf",
+                "description":"",
+                "scores":{
+                    "wis":"1"
+                },
+                "weaponProf":{
+                    "get":[
+                        "longsword",
+                        "shortsword",
+                        "shortbow",
+                        "longbow"
+                    ]
+                },
+                "speed":"35",
+                "features":[
+                    {
+                        "name":"Mask of the Wild",
+                        "description":"You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomina."
+                    }
+                ]
+            },
+            {
+                "name":"Dark Elf (Drow)",
+                "description":"",
+                "scores":{
+                    "cha":"1"
+                },
+                "weaponProf":{
+                    "get":[
+                        "rapier",
+                        "shortswords",
+                        "hand crossbows"
+                    ]
+                },
+                "spells":{
+                    "0":{
+                        "get":[
+                            "dancing lights"
+                        ]
+                    },
+                    "1":{
+                        "levelget":{
+                            "level":"3",
+                            "spells":[
+                                "faerie fire"
+                            ],
+                            "special":"Can cast once and regain the ability after a long rest."
+                        }
+                    },
+                    "2":{
+                        "levelget":{
+                            "level":"5",
+                            "spells":[
+                                "darkness"
+                            ],
+                            "special":"Can cast once and regain the ability after a long rest."
+                        }
+                    },
+                    "ability":"cha"
+                },
+                "features":[
+                    {
+                        "name":"Superior Darkvision",
+                        "description":"Your darkvision has a radius of 120 feet."
+                    },
+                    {
+                        "name":"Sunlight Sensitivity",
+                        "description":"You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sunlight when you, the target of your attack, or whatever you are trying to see is in direct sunlight."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name":"Halfling",
+        "description":"",
+        "scores":{
+            "dex":"2"
+        },
+        "age":"A halfling reaches adulthood at the age of 20 and generaly lives into the middle of his or her second century.",
+        "alignment":"Most halflings are lawful good. As a rule, they are good-hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are olso very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways.",
+        "size":"small",
+        "speed":"25",
+        "languages":{
+            "get":[
+                "Common",
+                "Halfling"
+            ]
+        },
+        "features":[
+            {
+                "name":"Lucky",
+                "description":"When you roll a 1 on a d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+            },
+            {
+                "name":"Brave",
+                "description":"You have advantage on saving throws against being frightend."
+            },
+            {
+                "name":"Halfling Nimbleness",
+                "description":"You can move through the space of any creature that is of a size larger than yours."
+            }
+        ],
+        "subrace":[
+            {
+                "name":"Lightfoot",
+                "description":"",
+                "scores":{
+                    "cha":"1"
+                },
+                "features":[
+                    {
+                        "name":"Naturally Srealthy",
+                        "description":"You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+                    }
+                ]
+            },
+            {
+                "name":"Stout",
+                "description":"",
+                "scores":{
+                    "con":"1"
+                },
+                "features":[
+                    {
+                        "name":"Stout Resilience",
+                        "description":"You have advantage on saving throws against poison, and you have resistance against poison damage."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name":"Human",
+        "description":"",
+        "scores":{
+            "str":"1",
+            "dex":"1",
+            "con":"1",
+            "int":"1",
+            "wis":"1",
+            "cha":"1"
+        },
+        "age":"Humans reach adulthood in their late teens and live less than a centry.",
+        "size":"medium",
+        "alignment":"Humans tend toward no particular alignment. The best and the worst are found among them.",
+        "speed":"30",
+        "languages":{
+            "get":[
+                "Common"
+            ],
+            "choice":[
+                {
+                    "number":"1",
+                    "choices":[
+                        "*lang"
+                    ]
+                }
+            ]
+        }
+    },
+    {
+        "name":"Dragonborn",
+        "description":"",
+        "scores":{
+            "str":"2",
+            "cha":"1"
+        },
+        "age":"Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human by the age of 3, and reach adulthood by 15. They live to be around 80.",
+        "alignment":"Dragonborn tend to extreames, making a concious choice for one side or the other in the cosmic war between good and evil (represented by Bahamut and Tiamat, respectively). Most dragonborn are good, but those that side with Tiamat can be terrible villians.",
+        "size":"medium",
+        "speed":"30",
+        "languages":{
+            "get":[
+                "Common",
+                "Draconic"
+            ]
+        },
+        "features":[
+            {
+                "name":"Dragon Ancestry",
+                "description":"You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.",
+                "table":[
+                    ["Draconic Ancestry"],
+                    ["Dragon","Damage Type", "Breath Weapon"],
+                    ["Black", "Acid", "5 by 30 ft. line (Dex. save)"],
+                    ["Blue", "Lightning", "5 by 30 ft. line (Dex. save)"],
+                    ["Brass", "Fire", "5 by 30 ft. line (Dex. save)"],
+                    ["Bronze", "Lightning", "5 by 30 ft. line (Dex. save)"],
+                    ["Copper", "Acid", "5 by 30 ft. line (Dex. save)"],
+                    ["Gold", "Fire", "15 ft. cone (Dex. save)"],
+                    ["Green", "Poison", "15 ft. cone (Con. save)"],
+                    ["Red", "Fire", "15 ft. cone (Dex. save)"],
+                    ["Silver", "Cold", "15 ft. cone (Con. save)"],
+                    ["White", "Cold", "15 ft. cone (Con. save)"]
+                ],
+                "choice": [
+                    {
+                        "number":"1",
+                        "choices":[
+                            "Black",
+                            "Blue",
+                            "Brass",
+                            "Bronze",
+                            "Copper",
+                            "Gold",
+                            "Green",
+                            "Red",
+                            "Silver",
+                            "White"
+                        ]
+                    }
+                ]
+            },
+            {
+                "name":"Breath Weapon",
+                "description":"You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.<br />When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution m odifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can’t use it again until you com plete a short or long rest."
+            },
+            {
+                "name":"Damage Resistance",
+                "description":"You have resistance to the damage type associated with your draconic ancestry."
+            }
+        ]
+    },
+    {
+        "name":"Gnome",
+        "description":"",
+        "scores":{
+            "int":"2"
+        },
+        "age":"Gnomes mature at the same rate as humans do, and most are expected to settle down into adult life by around age 40. They can live 350 to almost 500 years.",
+        "alignment":"Gnomes are most often good. Those who tend towards law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrals, tricksters, wanderers, or fanciful jewlers. Gnomes are good-hearted, and even the tricksters are more playful than vicious.",
+        "size":"small",
+        "speed":"25",
+        "languages":{
+            "get":[
+                "Common",
+                "Gnomish"
+            ]
+        },
+        "features":[
+            {
+                "name":"Darkvision",
+                "description":"Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name":"Gmone Cunning",
+                "description":"You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+            }
+        ],
+        "subrace":[
+            {
+                "name":"Forest Gnome",
+                "description":"",
+                "scores":{
+                    "dex":"1"
+                },
+                "spells":{
+                    "0":{
+                        "get":[
+                            "minor illusion"
+                        ]
+                    },
+                    "ability":"int"
+                },
+                "features":[
+                    {
+                        "name":"Speak with Small Beasts",
+                        "description":"Through sounds and gestures, you can communicate with simple ideas with Small or smaller beasts. Forest gnomes love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets."
+                    }
+                ]
+            },
+            {
+                "name":"Rock Gnome",
+                "description":"",
+                "scores":{
+                    "con":"1"
+                },
+                "toolProf": {
+                    "get":[
+                        "Tinker's tools"
+                    ]
+                },
+                "features":[
+                    {
+                        "name":"Artificer's Lore",
+                        "description":"Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficientcy bonus, instead of any proficientcy bonus you would normally apply."
+                    },
+                    {
+                        "name":"Tinker",
+                        "description":"You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.<br />When you create a device, choose one of the following options:<br /><br /><i>Clockwork Toy.</i> This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.<br /><i>Fire Starter.</i> The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.<br /><i>Music Box.</i> When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song’s end or when it is closed."
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name":"Half-Elf",
+        "description":"",
+        "scores":{
+            "cha":"2",
+            "choice":[
+                {
+                    "choices":[
+                        "*scores",
+                        "!cha"
+                    ],
+                    "number":"2"
+                }
+            ]
+        },
+        "age":"Half-elves mature at the same rate as humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years.",
+        "alignment":"Half-elves share the chaotic bent of their elven heritage. They value both personal freedom and creative expression, demonstraiting neither love of leaders nor desire for followers. They chafe at rules, resent other's demands, and sometimes prove unreliable, or at least unpredictable.",
+        "size":"medium",
+        "speed":"30",
+        "languages":{
+            "get":[
+                "Common"
+            ],
+            "choice":[
+                {
+                    "choices":[
+                        "*lang"
+                    ],
+                    "number":"1"
+                }
+            ]
+        },
+        "skills":{
+            "choice":[
+                {
+                    "choices":[
+                        "*skills"
+                    ],
+                    "number":"2"
+                }
+            ]
+        },
+        "features":[
+            {
+                "name":"Darkvision",
+                "description":"Thanks to your elf blood, you have superior vison in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name":"Fey Ancestry",
+                "description":"You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            }
+        ]
+    },
+    {
+        "name":"Half-Orc",
+        "description":"",
+        "scores":{
+            "str":"2",
+            "con":"1"
+        },
+        "age":"Half-orcs mature a little faster than humans, reaching adulthood around 14. They age noticeably faster and rarely live longer than 75 years.",
+        "alignment":"Half-orcs inherit a tendancy towards chaos from their orc parents and are not strongly inclined towards good. Half-orcs raised among orcs and willing to live out their lives among them are usually evil.",
+        "size":"medium",
+        "speed":"30",
+        "languages":{
+            "get":[
+                "Common",
+                "Orc"
+            ]
+        },
+        "skills":{
+            "get":[
+                "Intimidation"
+            ]
+        },
+        "features":[
+            {
+                "name":"Darkvision",
+                "description":"Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name":"Relentless Endurance",
+                "description":"When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest."
+            },
+            {
+                "name":"Savage Attacks",
+                "description":"When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."
+            }
+        ]
+    },
+    {
+        "name":"Tiefling",
+        "description":"",
+        "scores":{
+            "int":"1",
+            "cha":"2"
+        },
+        "age":"Tieflings mature at the same rate as humans but live a few years longer.",
+        "alignment":"Tieflings might not have an innate tendancy toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings towards a chaotic alignment.",
+        "size":"medium",
+        "speed":"30",
+        "spells":{
+            "0":{
+                "get":[
+                    "thaumaturgy"
+                ]
+            },
+            "1":{
+                "levelget":{
+                    "level":"3",
+                    "spells":[
+                        "hellish rebuke"
+                    ],
+                    "special":"Can cast as a 2nd level spell. Can cast once and regain the ability after a long rest."
+                }
+            },
+            "2":{
+                "levelget":{
+                    "level":"5",
+                    "spells":[
+                        "darkness"
+                    ],
+                    "special":"Can cast once and regain the ability after a long rest."
+                }
+            },
+            "ability":"cha"
+        },
+        "languages":{
+            "get":[
+                "Common",
+                "Infernal"
+            ]
+        },
+        "features":[
+            {
+                "name":"Darkvision",
+                "description":"Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name":"Hellish Resistance",
+                "description":"You have resistance to fire damage."
+            }
+        ]
+    }
+]
